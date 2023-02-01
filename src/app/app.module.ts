@@ -16,7 +16,7 @@ import { AuctionModule } from './auction/auction.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuctionModule
+    AuctionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
