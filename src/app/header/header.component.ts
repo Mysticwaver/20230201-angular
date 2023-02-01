@@ -3,7 +3,9 @@ import { Component, Input/*, ViewEncapsulation*/ } from '@angular/core';
 @Component({
   selector: 'app-header',
   template: `
-    <header>
+    <!--    <header [title]="helloTitle" (click)="addExclamationToTitle()"> -->
+    <!-- to samo co to: -->
+    <header [title]="helloTitle" (click)="title = title + '!'">
       <h1> {{title}} </h1>
     </header>
   `,
@@ -24,7 +26,8 @@ import { Component, Input/*, ViewEncapsulation*/ } from '@angular/core';
   // encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
-    @Input() title = 'Auction Portal'
+    @Input() title = 'Auction Portal';
+    helloTitle = 'sample title';
     // będzie też @Output() do komunikacji w 2 stronę.
 
     // Możemy dowolną rzecz z logiki z mienić w czasie, - zaktualizuje się na widoku.
@@ -33,4 +36,7 @@ export class HeaderComponent {
     //      this.title += '!'
     //   }, 3000)
     // }
+    addExclamationToTitle() {
+      this.title += '!'
+    }
 }
