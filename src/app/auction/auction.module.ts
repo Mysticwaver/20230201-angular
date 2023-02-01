@@ -9,9 +9,9 @@ import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
   declarations: [
     AuctionsPageComponent
   ],
-  exports: [
-    AuctionsPageComponent
-  ],
+  // exports: [
+  //   AuctionsPageComponent
+  // ], // nie eksportujemy bo nie używamy selektora
   imports: [
     CommonModule,
     AuctionRoutingModule
