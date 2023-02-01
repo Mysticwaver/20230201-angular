@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface MenuItem {
+   link: string;
+   title: string;
+}
+
 @Component({
   selector: 'app-main-menu',
   template: `
@@ -10,14 +15,8 @@ import { Component } from '@angular/core';
      <!-- <div class="collapse navbar-collapse" [class.show]="isMenuShown"> -->
       <div class="collapse navbar-collapse" [ngClass]="{'show' : isMenuShown }">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="auctions">Aukcje</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="promotions">Promocje</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="advices">Podpowiadamy</a>
+          <li class="nav-item" *ngFor="let item of menuItems">
+            <a class="nav-link" [href]="item.link">{{item.title}}</a>
           </li>
         </ul>
       </div>
@@ -28,6 +27,12 @@ import { Component } from '@angular/core';
 })
 export class MainMenuComponent {
   isMenuShown = false
+
+  menuItems: MenuItem[] = [
+    { link: '/auctions', title: 'Aukcje' },
+    { link: '/promotions', title: 'Promocje' },
+    { link: '/advices', title: 'Podpowiadamy' },
+  ]
 
   handleTogglerClick() {
     this.isMenuShown = !this.isMenuShown;
