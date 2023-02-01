@@ -16,7 +16,7 @@ interface MenuItem {
       <div class="collapse navbar-collapse" [ngClass]="{'show' : isMenuShown }">
         <ul class="navbar-nav">
           <li class="nav-item" *ngFor="let item of menuItems">
-            <a class="nav-link" [href]="item.link">{{item.title}}</a>
+            <a class="nav-link" [routerLink]="item.link" routerLinkActive="active">{{item.title}}</a>
           </li>
         </ul>
       </div>
