@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input/*, ViewEncapsulation*/ } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,20 @@ import { Component, Input } from '@angular/core';
     </header>
   `,
   styles: [
-  ]
+    `
+        h1 {
+          color: white;
+          text-shadow: black 2px 2px 2px;
+        }
+
+        header {
+          padding: 15px;
+          margin: 0;
+          background: url("https://picsum.photos/id/180/2000/400") no-repeat center;
+        }
+    `
+  ],
+  // encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
     @Input() title = 'Auction Portal'
