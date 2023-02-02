@@ -56,4 +56,4 @@
 <h2 class="my-2">Promocyjne aukcje</h2>
 ```
 
-2.2 Wepnij te stronę w routing tak, aby wyświetlała się po przejściu na `/promotios` 
+2.2 Wepnij te stronę w routing tak, aby wyświetlała się po przejściu na `/promotions` 
