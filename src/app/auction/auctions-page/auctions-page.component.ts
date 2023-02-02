@@ -7,7 +7,7 @@ import { AuctionsService } from '../auctions.service'
   // selector: 'app-auctions-page', // niepotrzebny bo będziemy tego używać przez ROUTER !
   template: `
     <h2 class="my-2" appHighlight>Lista naszych aukcji</h2>
-    <app-search-box></app-search-box>
+    <app-search-box placeholder="Wyszukaj aukcję..." (search)="handleSearch($event)"></app-search-box>
     <div class="row">
       <div class="col-12" *ngIf="isLoading">
         <div class="alert alert-info">Wczytuję aukcje....</div>
@@ -31,6 +31,10 @@ export class AuctionsPageComponent implements OnInit, OnDestroy {
   auctionSub = new Subscription()
 
   constructor(private auctionsService: AuctionsService) {}
+
+  handleSearch(searchText: string) {
+    console.log('Szukam', searchText);
+  }
 
   ngOnDestroy(): void {
     console.log('AuctionsPageComponent DESTROYED')
