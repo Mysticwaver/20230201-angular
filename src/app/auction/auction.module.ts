@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module'
 
 import { AuctionRoutingModule } from './auction-routing.module';
@@ -19,7 +18,7 @@ import { PromotionsPageComponent } from './promotions-page/promotions-page.compo
   //   AuctionsPageComponent
   // ], // nie eksportujemy bo nie używamy selektora
   imports: [
-    CommonModule,
+    // CommonModule, ten import nie jest już potrzebny, bo SharedModule eksportuje CommonModule !!
     AuctionRoutingModule,
     SharedModule
   ],

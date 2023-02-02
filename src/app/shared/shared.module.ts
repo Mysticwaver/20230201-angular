@@ -13,7 +13,8 @@ import { HighlightDirective } from './highlight.directive';
   ],
   exports: [
     SearchBoxComponent,
-    HighlightDirective
+    HighlightDirective,
+    CommonModule
   ]
 })
 export class SharedModule { }
