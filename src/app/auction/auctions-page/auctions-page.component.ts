@@ -6,7 +6,7 @@ import { AuctionsService } from '../auctions.service'
 @Component({
   // selector: 'app-auctions-page', // niepotrzebny bo będziemy tego używać przez ROUTER !
   template: `
-    <h2 class="my-2">Lista naszych aukcji</h2>
+    <h2 class="my-2" appHighlight>Lista naszych aukcji</h2>
     <app-search-box></app-search-box>
     <div class="row">
       <div class="col-12" *ngIf="isLoading">

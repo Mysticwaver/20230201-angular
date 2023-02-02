@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuctionModule } from './auction/auction.module';
     BrowserModule,
     AppRoutingModule,
     AuctionModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     // tak robić nie musimy !!!
