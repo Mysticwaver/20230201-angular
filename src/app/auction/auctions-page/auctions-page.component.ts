@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuctionItem } from '../auction-item'
 import { AuctionsService } from '../auctions.service'
 
@@ -22,20 +23,27 @@ import { AuctionsService } from '../auctions.service'
   ],
   // providers: [AuctionsService]
 })
-export class AuctionsPageComponent implements OnInit {
+export class AuctionsPageComponent implements OnInit, OnDestroy {
   auctions: AuctionItem[] = []
   isLoading = false
   errorMessage = ''
+  auctionSub = new Subscription()
 
   constructor(private auctionsService: AuctionsService) {}
+
+  ngOnDestroy(): void {
+    console.log('AuctionsPageComponent DESTROYED')
+    this.auctionSub.unsubscribe()
+  }
 
   ngOnInit(): void {
     this.errorMessage = '';
     this.isLoading = true;
-    this.auctionsService.getAll().subscribe({
+    this.auctionSub = this.auctionsService.getAll().subscribe({
       next: (auctions) => {
         this.auctions = auctions
         this.isLoading = false;
+        console.log('UWAGA AUKCJE PRZYSZŁY!')
       },
       error: (err: Error) => {
         console.error(err)
