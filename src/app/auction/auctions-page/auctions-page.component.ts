@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuctionItem } from '../auction-item'
+import { AuctionsService } from '../auctions.service'
 
 @Component({
   // selector: 'app-auctions-page', // niepotrzebny bo będziemy tego używać przez ROUTER !
@@ -12,44 +13,13 @@ import { AuctionItem } from '../auction-item'
     </div>
   `,
   styles: [
-  ]
+  ],
+  // providers: [AuctionsService]
 })
 export class AuctionsPageComponent {
-  auctions: AuctionItem[] = [
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/36/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/232/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/222/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/111/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/136/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    }
-    ]
+  auctions: AuctionItem[] = []
+
+  constructor(auctionsService: AuctionsService) {
+    this.auctions = auctionsService.getAll();
+  }
 }

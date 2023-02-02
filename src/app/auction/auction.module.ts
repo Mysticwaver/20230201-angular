@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuctionRoutingModule } from './auction-routing.module';
 import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
 import { AuctionItemCardComponent } from './auctions-page/auction-item-card.component';
+// import { AuctionsService } from './auctions.service'
 import { PromotionsPageComponent } from './promotions-page/promotions-page.component';
 
 
@@ -19,6 +20,11 @@ import { PromotionsPageComponent } from './promotions-page/promotions-page.compo
   imports: [
     CommonModule,
     AuctionRoutingModule
-  ]
+  ],
+  // https://angular.io/guide/hierarchical-dependency-injection
+  // ModuleInjector hierarchy
+  // providers: [
+  //   AuctionsService
+  // ]
 })
 export class AuctionModule { }
