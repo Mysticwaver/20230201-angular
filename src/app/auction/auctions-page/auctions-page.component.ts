@@ -6,8 +6,8 @@ import { AuctionItem } from '../auction-item'
   template: `
     <h2 class="my-2">Lista naszych aukcji</h2>
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" >
-        <app-auction-item-card [auction]="myAuction"></app-auction-item-card>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let item of auctions">
+        <app-auction-item-card [auction]="item"></app-auction-item-card>
       </div>
     </div>
   `,
@@ -15,11 +15,41 @@ import { AuctionItem } from '../auction-item'
   ]
 })
 export class AuctionsPageComponent {
-  myAuction: AuctionItem = {
+  auctions: AuctionItem[] = [
+    {
       id: 1,
       title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/36/200/200",
+      imgUrl: "https://picsum.photos/id/36/600/600",
+      description: "Jakiś opis",
+      price: 2000
+    },
+    {
+      id: 1,
+      title: "Części do aparatu",
+      imgUrl: "https://picsum.photos/id/232/600/600",
+      description: "Jakiś opis",
+      price: 2000
+    },
+    {
+      id: 1,
+      title: "Części do aparatu",
+      imgUrl: "https://picsum.photos/id/222/600/600",
+      description: "Jakiś opis",
+      price: 2000
+    },
+    {
+      id: 1,
+      title: "Części do aparatu",
+      imgUrl: "https://picsum.photos/id/111/600/600",
+      description: "Jakiś opis",
+      price: 2000
+    },
+    {
+      id: 1,
+      title: "Części do aparatu",
+      imgUrl: "https://picsum.photos/id/136/600/600",
       description: "Jakiś opis",
       price: 2000
     }
+    ]
 }
