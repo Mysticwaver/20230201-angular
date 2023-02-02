@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +20,7 @@ import { AuctionModule } from './auction/auction.module';
     BrowserModule,
     AppRoutingModule,
     AuctionModule,
+    HttpClientModule
   ],
   providers: [
     // tak robić nie musimy !!!

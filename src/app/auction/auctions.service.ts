@@ -1,7 +1,8 @@
 
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { AuctionItem } from './auction-item'
-import { of, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -10,60 +11,11 @@ import { of, Observable } from 'rxjs'
 })
 export class AuctionsService {
 
-  // Fasada (wyprowadzam tylko metody do zarządzania stanem, który przechowuje)
-  // STATEFUL SERVICE
-
-  // constructor() {
-  //   setTimeout(() => {
-  //     this.auctions.push({
-  //       id: 10,
-  //       title: "!!",
-  //       imgUrl: "https://picsum.photos/id/336/600/600",
-  //       description: "Jakiś opis",
-  //       price: 2000
-  //     })
-  //   }, 1000)
-  // }
-
-  private auctions: AuctionItem[] = [
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/36/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/232/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/222/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/111/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    },
-    {
-      id: 1,
-      title: "Części do aparatu",
-      imgUrl: "https://picsum.photos/id/136/600/600",
-      description: "Jakiś opis",
-      price: 2000
-    }
-  ]
+  // Fasada
+  // STATELESS SERVICE
+  constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<AuctionItem[]> {
-    return of(this.auctions)
+    return this.httpClient.get<AuctionItem[]>('http://localhost:3000/auctions')
   }
 }
