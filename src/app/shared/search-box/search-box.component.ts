@@ -6,7 +6,7 @@ import { debounceTime } from 'rxjs/operators';
   template: `
     <div class="input-group mb-3" style="max-width: 600px">
       <div class="input-group-prepend">
-        <span class="input-group-text" *ngIf="true">🔎</span>
+        <span class="input-group-text">🔎</span>
       </div>
       <input type="text" name="title" [placeholder]="placeholder" class="form-control" (input)="handleInput($event)" />
     </div>
