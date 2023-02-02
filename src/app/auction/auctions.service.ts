@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { AuctionItem } from './auction-item'
-import { Observable } from 'rxjs'
+import { catchError, Observable, of, retry, tap } from 'rxjs'
 import { environment } from '../../environments/environment'
 
 @Injectable({
@@ -18,7 +18,19 @@ export class AuctionsService {
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<AuctionItem[]> {
-    return this.httpClient.get<AuctionItem[]>(this.AUCTION_ENDPOINT)
+    return this.httpClient.get<AuctionItem[]>(this.AUCTION_ENDPOINT).pipe(
+      tap(auctions => {
+         console.log('USER REQUESTED', auctions.length, 'auctions')
+      }),
+      // CICHA obsługa błędu (pomimo że jest błąd na serwerze, to subscriber dostanie pustą tablicę, a nie błąd)
+      catchError(err => {
+        // tutaj obsługuję błąd
+        console.error('Mam error ale NBD', err.message)
+        // przepinam to na strumień z pustą tablicą....
+        return of([])
+      }),
+      retry(2)
+    )
   }
 
   add(auction: AuctionItem): Observable<AuctionItem> {
