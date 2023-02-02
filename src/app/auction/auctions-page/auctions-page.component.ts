@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuctionItem } from '../auction-item'
 import { AuctionsService } from '../auctions.service'
 
@@ -7,6 +7,12 @@ import { AuctionsService } from '../auctions.service'
   template: `
     <h2 class="my-2">Lista naszych aukcji</h2>
     <div class="row">
+      <div class="col-12" *ngIf="isLoading">
+        <div class="alert alert-info">Wczytuję aukcje....</div>
+      </div>
+      <div class="col-12" *ngIf="errorMessage">
+        <div class="alert alert-danger">Wystąpił błąd: {{errorMessage}}</div>
+      </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let item of auctions">
         <app-auction-item-card [auction]="item"></app-auction-item-card>
       </div>
@@ -16,12 +22,29 @@ import { AuctionsService } from '../auctions.service'
   ],
   // providers: [AuctionsService]
 })
-export class AuctionsPageComponent {
+export class AuctionsPageComponent implements OnInit {
   auctions: AuctionItem[] = []
+  isLoading = false
+  errorMessage = ''
 
-  constructor(auctionsService: AuctionsService) {
-    auctionsService.getAll().subscribe((auctions) => {
+  constructor(private auctionsService: AuctionsService) {}
+
+  ngOnInit(): void {
+    this.errorMessage = '';
+    this.isLoading = true;
+    this.auctionsService.getAll().subscribe({
+      next: (auctions) => {
         this.auctions = auctions
+        this.isLoading = false;
+      },
+      error: (err: Error) => {
+        console.error(err)
+        this.errorMessage = err.message
+        this.isLoading = false;
+      }/*,
+      complete: () => {
+
+      }*/
     });
   }
 }
