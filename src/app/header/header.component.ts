@@ -6,7 +6,7 @@ import { Component, Input/*, ViewEncapsulation*/ } from '@angular/core';
     <!--    <header [title]="helloTitle" (click)="addExclamationToTitle()"> -->
     <!-- to samo co to: -->
     <header [title]="helloTitle" (click)="title = title + '!'">
-      <h1> {{title}} </h1>
+      <h1> {{title}} <fa-icon icon="coffee"></fa-icon></h1>
     </header>
   `,
   styles: [

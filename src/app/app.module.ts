@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
-import { SharedModule } from './shared/shared.module'
+import { SharedModule } from './shared/shared.module';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SharedModule } from './shared/shared.module'
     AppRoutingModule,
     AuctionModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
   ],
   providers: [
     // tak robić nie musimy !!!
@@ -30,4 +33,8 @@ import { SharedModule } from './shared/shared.module'
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faCoffee);
+  }
+}
