@@ -46,6 +46,7 @@
 
 - pole `description` jest opcjonalne
 - możesz uzupełnić `myAuction` tymi danymi + użyć interfejsu (do typowania).
+- ustal bindowanie w kompoencie `app-auction-item-card` tak, aby poprawnie wyświetlał przekazane `myAuction` przez propsa od rodzica.
 
 ### Zadanie #2 | Nowa strona `PromotionsPageComponent`
 
