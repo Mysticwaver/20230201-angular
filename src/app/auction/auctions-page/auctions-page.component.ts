@@ -20,6 +20,8 @@ export class AuctionsPageComponent {
   auctions: AuctionItem[] = []
 
   constructor(auctionsService: AuctionsService) {
-    this.auctions = auctionsService.getAll();
+    auctionsService.getAll().subscribe((auctions) => {
+        this.auctions = auctions
+    });
   }
 }

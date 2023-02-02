@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core'
 import { AuctionItem } from './auction-item'
+import { of, Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,19 @@ export class AuctionsService {
 
   // Fasada (wyprowadzam tylko metody do zarządzania stanem, który przechowuje)
   // STATEFUL SERVICE
+
+  // constructor() {
+  //   setTimeout(() => {
+  //     this.auctions.push({
+  //       id: 10,
+  //       title: "!!",
+  //       imgUrl: "https://picsum.photos/id/336/600/600",
+  //       description: "Jakiś opis",
+  //       price: 2000
+  //     })
+  //   }, 1000)
+  // }
+
   private auctions: AuctionItem[] = [
     {
       id: 1,
@@ -49,7 +63,7 @@ export class AuctionsService {
     }
   ]
 
-  getAll(): AuctionItem[] {
-    return this.auctions
+  getAll(): Observable<AuctionItem[]> {
+    return of(this.auctions)
   }
 }
