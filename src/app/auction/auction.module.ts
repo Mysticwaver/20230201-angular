@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { SharedModule } from '../shared/shared.module'
 
+import { SharedModule } from '../shared/shared.module'
 import { AuctionRoutingModule } from './auction-routing.module';
 import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
 import { AuctionItemCardComponent } from './auctions-page/auction-item-card.component';
@@ -25,8 +24,7 @@ import { AddAuctionPageComponent } from './add-auction-page/add-auction-page.com
     imports: [
         // CommonModule, ten import nie jest już potrzebny, bo SharedModule eksportuje CommonModule !!
         AuctionRoutingModule,
-        SharedModule,
-        FontAwesomeModule
+        SharedModule
     ],
   // https://angular.io/guide/hierarchical-dependency-injection
   // ModuleInjector hierarchy

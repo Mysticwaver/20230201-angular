@@ -10,8 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
 import { SharedModule } from './shared/shared.module';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { faCoffee, faGavel, faPlus, faShoppingBasket, faUser, faSearch, faCartPlus, faEdit, faTag, faImage } from '@fortawesome/free-solid-svg-icons';
 
 import { AdviceModule } from './advice/advice.module'
 
@@ -27,7 +25,6 @@ import { AdviceModule } from './advice/advice.module'
     AuctionModule,
     HttpClientModule,
     SharedModule,
-    FontAwesomeModule,
     AdviceModule
   ],
   providers: [
@@ -36,8 +33,4 @@ import { AdviceModule } from './advice/advice.module'
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(library: FaIconLibrary) {
-    library.addIcons(faCoffee, faGavel, faPlus, faShoppingBasket, faUser, faSearch, faCartPlus, faEdit, faTag, faImage)
-  }
-}
+export class AppModule {}
