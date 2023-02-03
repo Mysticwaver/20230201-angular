@@ -20,6 +20,14 @@ interface MenuItem {
           </li>
         </ul>
       </div>
+      <div class="text-light">
+        <a class="btn btn-primary" routerLink="/add-auction">
+          <fa-icon icon="plus"></fa-icon> Dodaj
+        </a>
+        <a class="btn btn-secondary mx-2" routerLink="/shopping-cart">
+          <fa-icon icon="shopping-basket"></fa-icon> Koszyk
+        </a>
+      </div>
     </nav>
   `,
   styles: [

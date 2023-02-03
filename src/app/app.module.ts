@@ -11,7 +11,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
 import { SharedModule } from './shared/shared.module';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faGavel, faPlus, faShoppingBasket, faUser, faSearch, faCartPlus, faEdit, faTag, faImage } from '@fortawesome/free-solid-svg-icons';
+
 import { AdviceModule } from './advice/advice.module'
 
 @NgModule({
@@ -37,6 +38,6 @@ import { AdviceModule } from './advice/advice.module'
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faCoffee);
+    library.addIcons(faCoffee, faGavel, faPlus, faShoppingBasket, faUser, faSearch, faCartPlus, faEdit, faTag, faImage)
   }
 }
