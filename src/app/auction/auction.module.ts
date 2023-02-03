@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { SharedModule } from '../shared/shared.module'
 import { AuctionRoutingModule } from './auction-routing.module';
@@ -24,7 +25,8 @@ import { AddAuctionPageComponent } from './add-auction-page/add-auction-page.com
     imports: [
         // CommonModule, ten import nie jest już potrzebny, bo SharedModule eksportuje CommonModule !!
         AuctionRoutingModule,
-        SharedModule
+        SharedModule,
+        FormsModule
     ],
   // https://angular.io/guide/hierarchical-dependency-injection
   // ModuleInjector hierarchy
