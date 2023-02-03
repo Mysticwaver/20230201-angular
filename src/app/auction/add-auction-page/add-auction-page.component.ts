@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AddAuctionPageComponent {
 
+  handleFormSubmit(ev: SubmitEvent, form: HTMLFormElement) {
+    ev.preventDefault();
+    console.dir(form)
+  }
 }
