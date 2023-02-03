@@ -44,7 +44,7 @@
 
 ### Zadanie #2 | W pełni działające menu + strony
 
-1.1 Buttony w menu:
+2.1 Buttony w menu:
 
 Dodaj na koniec widoku `main-menu` kod HTML pomiędzy jego znacznikami:
 ```html
@@ -65,13 +65,13 @@ Kod z buttonami do dodania:
 </div>
 ```
 
-1.2 Dodaj brakujące strony jako komponenty `*-page`, nazwij je np.: `add-auction-page`, `shopping-cart-page`
+2.2 Dodaj brakujące strony jako komponenty `*-page`, nazwij je np.: `add-auction-page`, `shopping-cart-page`
 template jako oddzielny plik zrób tylko w komponencie - `add-auction-page`
 (pozostałe mogą mieć inline-style oraz template)
 
-1.3 Podłącz strony z routingiem i menu (przyciski: Dodaj i Koszyk).
+2.3 Podłącz strony z routingiem i menu (przyciski: Dodaj i Koszyk).
 
-1.4 Do `add-auction-page` dodaj kod HTML, przygotowany pod formularz dodawania aukcji:
+2.4 Do `add-auction-page` dodaj kod HTML, przygotowany pod formularz dodawania aukcji:
 
 ```html
 <h2 class="my-3">Dodaj nową aukcję</h2>
