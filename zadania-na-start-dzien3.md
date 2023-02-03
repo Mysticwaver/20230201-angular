@@ -90,7 +90,7 @@ template jako oddzielny plik zrób tylko w komponencie - `add-auction-page`
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text">
-              <fa-icon icon=="edit"></fa-icon>
+              <fa-icon icon="edit"></fa-icon>
             </span>
           </div>
           <input
@@ -108,7 +108,7 @@ template jako oddzielny plik zrób tylko w komponencie - `add-auction-page`
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text">
-              <fa-icon icon=="tag"></fa-icon>
+              <fa-icon icon="tag"></fa-icon>
             </span>
           </div>
           <input
@@ -126,7 +126,7 @@ template jako oddzielny plik zrób tylko w komponencie - `add-auction-page`
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text">
-              <fa-icon icon=="image"></fa-icon>
+              <fa-icon icon="image"></fa-icon>
             </span>
           </div>
           <input
@@ -152,7 +152,7 @@ template jako oddzielny plik zrób tylko w komponencie - `add-auction-page`
       </div>
       <div class="text-right">
         <button class="btn btn-primary" type="submit">
-          <fa-icon icon=="gavel"></fa-icon> Dodaj aukcję
+          <fa-icon icon="gavel"></fa-icon> Dodaj aukcję
         </button>
       </div>
     </form>
