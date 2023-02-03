@@ -27,6 +27,13 @@
       "imgUrl": "https://picsum.photos/id/183/200/200",
       "description": "Zabytkowy ogórek",
       "price": 1200
+    },
+    {
+      "imgUrl": "https://picsum.photos/id/2/600/600",
+      "description": "czy to działa ?",
+      "price": 7456,
+      "title": "LAPTOP",
+      "id": 5
     }
   ]
 }

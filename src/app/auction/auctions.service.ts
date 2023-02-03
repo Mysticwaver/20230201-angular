@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { AuctionItem } from './auction-item'
+import { AuctionItem, CreateAuctionItem } from './auction-item'
 import { catchError, Observable, of, retry, tap } from 'rxjs'
 import { environment } from '../../environments/environment'
 
@@ -33,7 +33,7 @@ export class AuctionsService {
     )
   }
 
-  add(auction: AuctionItem): Observable<AuctionItem> {
+  add(auction: CreateAuctionItem): Observable<AuctionItem> {
     return this.httpClient.post<AuctionItem>(this.AUCTION_ENDPOINT, auction)
   }
 }

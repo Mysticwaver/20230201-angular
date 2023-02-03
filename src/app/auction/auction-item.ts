@@ -5,3 +5,5 @@ export interface AuctionItem {
   description?: string
   price: number
 }
+
+export type CreateAuctionItem = Omit<AuctionItem, 'id'>;

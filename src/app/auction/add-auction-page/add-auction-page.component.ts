@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms'
-import { AuctionItem } from '../auction-item'
+import { Subscription } from 'rxjs'
+import { CreateAuctionItem } from '../auction-item'
+import { AuctionsService } from '../auctions.service'
 
 @Component({
   templateUrl: './add-auction-page.component.html',
@@ -12,9 +14,14 @@ import { AuctionItem } from '../auction-item'
     `
   ]
 })
-export class AddAuctionPageComponent {
+export class AddAuctionPageComponent implements OnDestroy {
 
   imgID = 1;
+  formSubmitted = false; // prevent double submitting
+
+  addAuctionSub = new Subscription()
+
+  constructor(private auctionsService: AuctionsService) {}
 
   get imgPreviewUrl() {
      return `https://picsum.photos/id/${this.imgID}/600/600`
@@ -26,13 +33,28 @@ export class AddAuctionPageComponent {
       return;
     }
     const { price, title, description } = form.value;
-    const auction: AuctionItem = {
-      id: 0,
+    const auction: CreateAuctionItem = {
       imgUrl: this.imgPreviewUrl,
       description,
       price,
       title
     }
-    console.dir(auction)
+    this.formSubmitted = true;
+    // Dodaj aukcje na backend, jeśli ok to:
+    this.addAuctionSub = this.auctionsService.add(auction).subscribe({
+      next: () => {
+        // resetuj form !
+        form.reset({imgUrl: 1})
+        this.formSubmitted = false;
+      },
+      error: (err) => {
+        console.error(err)
+        this.formSubmitted = false;
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.addAuctionSub.unsubscribe();
   }
 }

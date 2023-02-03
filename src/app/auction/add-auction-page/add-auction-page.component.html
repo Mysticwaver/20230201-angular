@@ -83,7 +83,7 @@
         </div>
       </div>
       <div class="text-right">
-        <button class="btn btn-primary" type="submit" [style.opacity]="auctionForm.invalid ? 0.8 : 1">
+        <button class="btn btn-primary" type="submit" [style.opacity]="auctionForm.invalid ? 0.8 : 1" [disabled]="formSubmitted">
           <fa-icon icon="gavel"></fa-icon> Dodaj aukcję
         </button>
       </div>
