@@ -11,7 +11,7 @@ import { CartService } from '../cart.service'
     <app-search-box placeholder="Wyszukaj aukcję..." (search)="handleSearch($event)"></app-search-box>
     <div class="row">
       <div class="col-12">
-        Jest już {{cartService.getCount() | async }} elementów w koszyku.
+        Jest już {{cartItemsCount$ | async }} elementów w koszyku.
 <!--      TEST: {{ auctions | json | uppercase }}-->
       </div>
       <div class="col-12" *ngIf="isLoading">
@@ -36,6 +36,7 @@ export class AuctionsPageComponent implements OnInit, OnDestroy {
   isLoading = false
   errorMessage = ''
   auctionSub = new Subscription()
+  cartItemsCount$ = this.cartService.getCount()
 
   constructor(private auctionsService: AuctionsService, public cartService: CartService) {}
 
@@ -70,5 +71,9 @@ export class AuctionsPageComponent implements OnInit, OnDestroy {
 
       }*/
     });
+
+    // ala Watcher z Vue:
+    // tylko pamiętaj o unsubscribe
+    this.cartItemsCount$.subscribe(() => {})
   }
 }
