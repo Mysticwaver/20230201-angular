@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <div class="col-12 col-sm-4">
         <ul class="list-group">
           <li class="list-group-item">
-            <a routerLink="/advices/1"> Jak wybrać dobry komputer? </a>
+            <a routerLink="1000"> Jak wybrać dobry komputer? </a>
           </li>
           <li class="list-group-item">
             <a routerLink="/advices/2"> Inny tytuł </a>
