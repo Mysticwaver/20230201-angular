@@ -11,7 +11,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
 import { SharedModule } from './shared/shared.module';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { AdviceModule } from './advice/advice.module'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
     AuctionModule,
     HttpClientModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AdviceModule
   ],
   providers: [
     // tak robić nie musimy !!!
